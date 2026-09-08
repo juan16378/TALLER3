@@ -1,7 +1,6 @@
-pip install numpy
-pip install pandas
-pip install scikit-learn
-pip install joblib
-pip install streamlit
-pip install plotly
-pip install plotly
+numpy
+pandas
+scikit-learn
+joblib
+streamlit
+plotly
