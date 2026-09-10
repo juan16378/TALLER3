@@ -115,7 +115,7 @@ with tab4:
         perdida_apetito = st.selectbox("Pérdida de apetito", ["No", "Sí"])
 
 # ================= CONVERTIR A VALORES NUMÉRICOS =================
-def s2b(x): return 1 if x == "Sí" else 0
+def s2b(x): return 1 if x == "Sí" else 0 
 def ans2int(x):
     return {"No":0, "Leve":1, "Moderada":1, "Severa":2}.get(x, 0)
 
