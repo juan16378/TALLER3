@@ -2,10 +2,18 @@
 Django settings for core project.
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# URL pública de la API (FastAPI) a la que se conecta el frontend.
+# Se lee de una variable de entorno para no tener que tocar código si el
+# link cambia — en Railway: Settings → Variables → API_BASE_URL.
+API_BASE_URL = os.environ.get(
+    "API_BASE_URL", "https://taller3-production-b558.up.railway.app"
+)
 
 
 # Quick-start development settings - unsuitable for production

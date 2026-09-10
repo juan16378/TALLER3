@@ -2,7 +2,6 @@ import os
 import joblib
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 app = FastAPI(title="API de Regresión Lineal", description="API para predecir precios de viviendas usando un modelo de regresión lineal entrenado.", version="1.0.0")
@@ -19,7 +18,6 @@ app.add_middleware(
 # Ruta relativa a la ubicación de este script, sin importar desde dónde se ejecute
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "models", "linear_model.joblib")
-STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 try:
     # Load the trained model
@@ -30,9 +28,9 @@ except Exception:
 class housem2(BaseModel):
     area_m2: float = Field(..., description="Área de la vivienda en metros cuadrados", examples=[82.5])
 
-@app.get("/", include_in_schema=False)
-def serve_frontend():
-    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
+@app.get("/")
+def root():
+    return {"message": "La API está funcionando correctamente."}
 
 @app.get("/api/health")
 def health_check():
