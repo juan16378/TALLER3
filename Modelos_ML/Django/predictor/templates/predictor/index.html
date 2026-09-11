@@ -393,7 +393,8 @@
 
 <script>
   // Viene de settings.API_BASE_URL (variable de entorno API_BASE_URL en Railway).
-  const API_BASE_URL = "{{ api_base_url }}";
+  // Se le quita la barra final si la trae, para no generar "//predict".
+  const API_BASE_URL = "{{ api_base_url }}".replace(/\/+$/, "");
 
   const form = document.getElementById("predict-form");
   const areaInput = document.getElementById("area");

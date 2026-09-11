@@ -11,9 +11,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # URL pública de la API (FastAPI) a la que se conecta el frontend.
 # Se lee de una variable de entorno para no tener que tocar código si el
 # link cambia — en Railway: Settings → Variables → API_BASE_URL.
+# Se le quita la barra final (si la trae) para no generar "//predict".
 API_BASE_URL = os.environ.get(
     "API_BASE_URL", "https://backend-production-b558.up.railway.app"
-)
+).rstrip("/")
 
 
 # Quick-start development settings - unsuitable for production
