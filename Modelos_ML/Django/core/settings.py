@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Se lee de una variable de entorno para no tener que tocar código si el
 # link cambia — en Railway: Settings → Variables → API_BASE_URL.
 API_BASE_URL = os.environ.get(
-    "API_BASE_URL", "https://taller3-production-b558.up.railway.app"
+    "API_BASE_URL", "https://backend-production-b558.up.railway.app"
 )
 
 
